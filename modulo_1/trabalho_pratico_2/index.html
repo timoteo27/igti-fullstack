@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <title>Trabalho Prático 2</title>
+  </head>
+  <body>
+    <div class="search-panel">
+      <h2 class="panel-title">Pesquisa de usuários</h2>
+      <divclass="col s12">
+        <div class="row">
+          <div class="input-field col s10">
+            <input id="inputSearch" type="text" class="validate" />
+            <label for="inputSearch">Argumento de busca</label>
+          </div>
+          <div class="col s2">
+            <button id="buttonSearch" type="submit" class="waves-effect waves-light btn">Buscar</butotn>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-panel">
+      <div class="users-panel">
+        <h3 id="usersFoundTitle">N usuário(s) encontrado(s)</h3>
+        <div class="user-row" id="filteredUsersDiv"></div>
+      </div>
+      <div class="users-panel">
+        <h3>Estatísticas</h3>
+        <div class="information-panel" id="usersInformationDiv"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

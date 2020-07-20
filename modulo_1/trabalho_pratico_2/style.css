@@ -1,0 +1,55 @@
+.search-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-panel > form {
+  margin-left: 20px;
+}
+
+.panel-title {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+.result-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+.information-panel {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  margin: 0px 10px 0px 10px;
+}
+
+.information-panel span {
+  font-size: large;
+}
+
+.information-panel .information-value {
+  font-weight: bold;
+  color: red;
+}
+
+.users-panel {
+  border: 1px solid lightgray;
+  flex: 1;
+  margin: 0px 10px 0px 10px;
+}
+
+.user-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-row span {
+  background-color: lightgreen;
+}
+
+.user-row img {
+  width: 30px;
+  border-radius: 20px;
+}

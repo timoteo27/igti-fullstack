@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trabalho Prático 1</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" lang="js"></script>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <label for="inputRed">(R) Vermelho: </label>
+        </td>
+        <td>
+          <input type="range" id="inputRed" step="1" max="255" />
+        </td>
+        <td>
+          <input
+            type="text"
+            id="inputRedValue"
+            class="inputColorCode"
+            disabled
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="inputGreen">(G) Green: </label>
+        </td>
+        <td>
+          <input type="range" id="inputGreen" step="1" max="255" />
+        </td>
+        <td>
+          <input
+            type="text"
+            id="inputGreenValue"
+            class="inputColorCode"
+            disabled
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="inputBlue">(B) Blue: </label>
+        </td>
+        <td>
+          <input type="range" id="inputBlue" step="1" max="255" />
+        </td>
+        <td>
+          <input
+            type="text"
+            id="inputBlueValue"
+            class="inputColorCode"
+            disabled
+          />
+        </td>
+      </tr>
+    </table>
+
+    <div id="divColorResult" class="divColorResult"></div>
+  </body>
+</html>

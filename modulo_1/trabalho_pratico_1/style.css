@@ -1,0 +1,15 @@
+.colorLine label {
+  color: black;
+}
+
+.divColorResult {
+  margin: auto;
+  margin-top: 30px;
+  width: 100px;
+  height: 100px;
+}
+
+.inputColorCode {
+  width: 25px;
+  text-align: center;
+}
