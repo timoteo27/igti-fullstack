@@ -1,42 +1,37 @@
-import { promises as fs } from 'fs';
+import * as questions from './library/questions.js';
+import getProjectData from './library/project_data.js';
 
-questao1();
+async function execute() {
+  const {
+    arrayEstados,
+    arrayCidades,
+    arrayCidadesEstados,
+  } = await getProjectData();
 
-/* 
- * 1. Criar uma função que irá criar um arquivo JSON para cada estado representado no
-  arquivo Estados.json, e o seu conteúdo será um array das cidades pertencentes a
-  aquele estado, de acordo com o arquivo Cidades.json. O nome do arquivo deve ser
-  o UF do estado, por exemplo: MG.json.2. Criar uma função que recebe como parâmetro o UF do estado, realize a leitura do
-  arquivo JSON correspondente e retorne a quantidade de cidades daquele estado.
- */
-async function questao1() {
-  try {
-    const arrayEstados = JSON.parse(await fs.readFile('data/Estados.json'));
-    console.log(arrayEstados);
-  } catch (err) {
-    console.log(`Erro na questão 1! ${err}`);
-  }
+  let returnQ1 = await questions.questao1(arrayCidadesEstados);
+  console.log(`${returnQ1}`);
+
+  let siglaUf = 'SC';
+  let returnQ2 = await questions.questao2(siglaUf);
+  console.log(`${returnQ2}`);
+
+  let returnQ3 = await questions.questao3(arrayCidadesEstados);
+  console.log(`${returnQ3}`);
+
+  let returnQ4 = await questions.questao4(arrayCidadesEstados);
+  console.log(`${returnQ4}`);
+
+  let returnQ5 = await questions.questao5(arrayCidadesEstados);
+  console.log(`${returnQ5}`);
+
+  let returnQ6 = await questions.questao6(arrayCidadesEstados);
+  console.log(`${returnQ6}`);
+
+  let returnQ7 = await questions.questao7(arrayCidadesEstados);
+  console.log(`${returnQ7}`);
+
+  let returnQ8 = await questions.questao8(arrayCidadesEstados);
+  console.log(`${returnQ8}`);
 }
 
-/* Métodos que devem ser criados:
-  2. Criar uma função que recebe como parâmetro o UF do estado, realize a leitura do
-  arquivo JSON correspondente e retorne a quantidade de cidades daquele estado.
-  3. Criar um método que imprima no console um array com o UF dos cinco estados
-  que mais possuem cidades, seguidos da quantidade, em ordem decrescente. Você
-  pode usar a função criada no tópico 2. Exemplo de impressão: [“UF - 93”, “UF - 82”,
-  “UF - 74”, “UF - 72”, “UF - 65”]
-  4. Criar um método que imprima no console um array com o UF dos cinco estados
-  que menos possuem cidades, seguidos da quantidade, em ordem decrescente.
-  Você pode usar a função criada no tópico 2. Exemplo de impressão: [“UF - 30”, “UF
-  - 27”, “UF - 25”, “UF - 23”, “UF - 21”]
-  5. Criar um método que imprima no console um array com a cidade de maior nome de
-  cada estado, seguida de seu UF. Por exemplo: [“Nome da Cidade – UF”, “Nome da
-  Cidade – UF”, ...].
-  6. Criar um método que imprima no console um array com a cidade de menor nome
-  de cada estado, seguida de seu UF. Por exemplo: [“Nome da Cidade – UF”, “Nome
-  da Cidade – UF”, ...].
-  7. Criar um método que imprima no console a cidade de maior nome entre todos os
-  estados, seguido do seu UF. Exemplo: “Nome da Cidade - UF".
-  8. Criar um método que imprima no console a cidade de menor nome entre todos os
-  estados, seguido do seu UF. Exemplo: “Nome da Cidade - UF"
-*/
+execute();
