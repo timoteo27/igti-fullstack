@@ -14,7 +14,7 @@ Cidade Y).
 a execução.
 */
 
-/* 
+/**
  * 1. Criar uma função que irá criar um arquivo JSON para cada estado representado no
   arquivo Estados.json, e o seu conteúdo será um array das cidades pertencentes a
   aquele estado, de acordo com o arquivo Cidades.json. O nome do arquivo deve ser
@@ -34,7 +34,7 @@ export async function questao1(arrayCidadesEstados) {
   }
 }
 
-/*
+/**
  * 2. Criar uma função que recebe como parâmetro o UF do estado, realize a leitura do
   arquivo JSON correspondente e retorne a quantidade de cidades daquele estado.
 */
@@ -46,13 +46,13 @@ export async function questao2(siglaEstado) {
   } cidade(s).'`;
 }
 
-/*
+/**
 * 3. Criar um método que imprima no console um array com o UF dos cinco estados
   que mais possuem cidades, seguidos da quantidade, em ordem decrescente. Você
   pode usar a função criada no tópico 2. Exemplo de impressão: [“UF - 93”, “UF - 82”,
   “UF - 74”, “UF - 72”, “UF - 65”]
 */
-export async function questao3(arrayCidadesEstados) {
+export function questao3(arrayCidadesEstados) {
   let arrayNumberOfCitiesByState = getNumberOfCitiesByState(
     arrayCidadesEstados
   );
@@ -67,6 +67,10 @@ export async function questao3(arrayCidadesEstados) {
   return `questao3: ${JSON.stringify(top5Cities)}`;
 }
 
+/**
+ * Function to get an array with the number of cities in each state.
+ * @param {array} arrayCidadesEstados
+ */
 function getNumberOfCitiesByState(arrayCidadesEstados) {
   return arrayCidadesEstados.map((estado) => {
     let countCidades = estado.CidadesDoEstado.length;
@@ -77,13 +81,13 @@ function getNumberOfCitiesByState(arrayCidadesEstados) {
   });
 }
 
-/*
- *  4. Criar um método que imprima no console um array com o UF dos cinco estados
+/**
+ * 4. Criar um método que imprima no console um array com o UF dos cinco estados
   que menos possuem cidades, seguidos da quantidade, em ordem decrescente.
   Você pode usar a função criada no tópico 2. Exemplo de impressão: [“UF - 30”, “UF
   - 27”, “UF - 25”, “UF - 23”, “UF - 21”]
 */
-export async function questao4(arrayCidadesEstados) {
+export function questao4(arrayCidadesEstados) {
   let arrayNumberOfCitiesByState = getNumberOfCitiesByState(
     arrayCidadesEstados
   );
@@ -98,9 +102,13 @@ export async function questao4(arrayCidadesEstados) {
   return `questao4: ${JSON.stringify(top5Cities)}`;
 }
 
-//Function for questions 5,6,7 and 8.
+/**
+ * Function for questions 5,6,7 and 8.
+ * @param {array} arrayCidadesEstados
+ * @param {function} filterCondition
+ */
 function getFilteredCitiesByNameLength(arrayCidadesEstados, filterCondition) {
-  let arrayCitiesName = [];
+  const arrayCitiesName = [];
   arrayCidadesEstados.forEach((estado) => {
     let cidade = estado.CidadesDoEstado.sort(filterCondition);
     arrayCitiesName.push(`${cidade[0].Nome} - ${estado.SiglaEstado}`);
@@ -108,12 +116,12 @@ function getFilteredCitiesByNameLength(arrayCidadesEstados, filterCondition) {
   return arrayCitiesName;
 }
 
-/*
- * 5. Criar um método que imprima no console um array com a cidade de maior nome de
+/**
+ 5. Criar um método que imprima no console um array com a cidade de maior nome de
   cada estado, seguida de seu UF. Por exemplo: [“Nome da Cidade – UF”, “Nome da
   Cidade – UF”, ...].
 */
-export async function questao5(arrayCidadesEstados) {
+export function questao5(arrayCidadesEstados) {
   let arrayCitiesName = getFilteredCitiesByNameLength(
     arrayCidadesEstados,
     (cidadeA, cidadeB) => {
@@ -124,12 +132,12 @@ export async function questao5(arrayCidadesEstados) {
   return `questao5: ${JSON.stringify(arrayCitiesName)}`;
 }
 
-/*
- * 6. Criar um método que imprima no console um array com a cidade de menor nome
+/**
+ 6. Criar um método que imprima no console um array com a cidade de menor nome
   de cada estado, seguida de seu UF. Por exemplo: [“Nome da Cidade – UF”, “Nome
   da Cidade – UF”, ...].
 */
-export async function questao6(arrayCidadesEstados) {
+export function questao6(arrayCidadesEstados) {
   let arrayCitiesName = getFilteredCitiesByNameLength(
     arrayCidadesEstados,
     (cidadeA, cidadeB) => {
@@ -139,11 +147,11 @@ export async function questao6(arrayCidadesEstados) {
   return `questao6: ${JSON.stringify(arrayCitiesName)}`;
 }
 
-/*
+/**
  * 7. Criar um método que imprima no console a cidade de maior nome entre todos os
   estados, seguido do seu UF. Exemplo: “Nome da Cidade - UF".
 */
-export async function questao7(arrayCidadesEstados) {
+export function questao7(arrayCidadesEstados) {
   let arrayCitiesName = getFilteredCitiesByNameLength(
     arrayCidadesEstados,
     (cidadeA, cidadeB) => {
@@ -162,11 +170,11 @@ export async function questao7(arrayCidadesEstados) {
   return `questao7: ${JSON.stringify(biggestCityName)}`;
 }
 
-/*
+/**
  * 8. Criar um método que imprima no console a cidade de menor nome entre todos os
   estados, seguido do seu UF. Exemplo: “Nome da Cidade - UF"
 */
-export async function questao8(arrayCidadesEstados) {
+export function questao8(arrayCidadesEstados) {
   let arrayCitiesName = getFilteredCitiesByNameLength(
     arrayCidadesEstados,
     (cidadeA, cidadeB) => {

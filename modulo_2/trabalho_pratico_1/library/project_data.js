@@ -1,30 +1,23 @@
 import { promises as fs } from 'fs';
 
-let arrayEstados = [];
-let arrayCidades = [];
-let arrayCidadesEstados = [];
+async function getArrayCidadesEstados() {
+  const arrayEstados = JSON.parse(await fs.readFile('data/Estados.json'));
+  const arrayCidades = JSON.parse(await fs.readFile('data/Cidades.json'));
 
-async function getProjectData() {
-  await loadData();
-  await loadArrayCidadesEstados();
+  const arrayCidadesEstados = [];
 
-  return { arrayEstados, arrayCidades, arrayCidadesEstados };
-}
+  arrayEstados.forEach((estado) => {
+    const cidades = arrayCidades.filter(
+      (cidade) => cidade.Estado === estado.ID
+    );
 
-async function loadData() {
-  arrayEstados = JSON.parse(await fs.readFile('data/Estados.json'));
-  arrayCidades = JSON.parse(await fs.readFile('data/Cidades.json'));
-}
-
-async function loadArrayCidadesEstados() {
-  arrayCidadesEstados = arrayEstados.map((estado) => {
-    let teste = arrayCidades.filter((cidade) => cidade.Estado === estado.ID);
-
-    return {
+    arrayCidadesEstados.push({
       SiglaEstado: estado.Sigla,
-      CidadesDoEstado: [...teste],
-    };
+      CidadesDoEstado: [...cidades],
+    });
   });
+
+  return arrayCidadesEstados;
 }
 
-export default getProjectData;
+export default getArrayCidadesEstados;
