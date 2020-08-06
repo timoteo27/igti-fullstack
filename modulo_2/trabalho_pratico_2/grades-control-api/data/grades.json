@@ -384,22 +384,6 @@
       "type": "Desafio",
       "value": 45,
       "timestamp": "2020-05-19T18:21:25.284Z"
-    },
-    {
-      "id": 49,
-      "student": "Timóteo Grigull",
-      "subject": "03 - História",
-      "type": "Prova",
-      "value": 14,
-      "timestamp": "2020-08-05T00:07:58.529Z"
-    },
-    {
-      "id": 50,
-      "student": "Joana Grigull",
-      "subject": "02 - História",
-      "type": "Prova",
-      "value": 10,
-      "timestamp": "2020-08-05T00:08:25.866Z"
     }
   ]
 }

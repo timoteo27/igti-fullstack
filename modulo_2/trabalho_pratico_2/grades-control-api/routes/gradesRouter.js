@@ -1,37 +1,31 @@
 import express from 'express';
-import { promises as fs } from 'fs';
+import {
+  atualizarGrade,
+  buscaGrade,
+  deletarGrade,
+  inserirNovaGrade,
+} from '../controllers/gradesController.js';
 
 const gradesRouter = express.Router();
 
-gradesRouter.put('/', async (req, res) => {
-  try {
-    const jsonData = JSON.parse(await fs.readFile(global.fileNameData));
+gradesRouter.post('/', async (req, res) => {
+  const { student, subject, type, value } = req.body;
+  res.send(await inserirNovaGrade(student, subject, type, value));
+});
 
-    const novaGrade = {
-      id: jsonData.nextId++,
-      ...req.body,
-      timestamp: new Date(),
-    };
-    jsonData.grades.push(novaGrade);
+gradesRouter.put('/:id', async (req, res) => {
+  const { student, subject, type, value } = req.body;
+  res.send(
+    await atualizarGrade(parseInt(req.params.id), student, subject, type, value)
+  );
+});
 
-    fs.writeFile(global.fileNameData, JSON.stringify(jsonData, null, 2));
-
-    res.send(novaGrade);
-  } catch (err) {
-    res.send(err);
-  }
+gradesRouter.delete('/:id', async (req, res) => {
+  res.send(await deletarGrade(parseInt(req.params.id)));
 });
 
 gradesRouter.get('/:id', async (req, res) => {
-  try {
-    const jsonData = JSON.parse(await fs.readFile(global.fileNameData));
-    const userFound = jsonData.grades.find(
-      (g) => g.id === parseInt(req.params.id)
-    );
-    res.send(userFound);
-  } catch (err) {
-    res.send(err);
-  }
+  res.send(await buscaGrade(parseInt(req.params.id)));
 });
 
 export default gradesRouter;
