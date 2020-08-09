@@ -41,13 +41,11 @@ async function atualizarGrade(idGrade, student, subject, type, value) {
     if (gradeIndex < 0) {
       throw new Error('Grade não encontrada!');
     }
-    jsonData.grades[gradeIndex] = {
-      id: jsonData.grades[gradeIndex].id,
-      student,
-      subject,
-      type,
-      value,
-    };
+
+    if (student !== undefined) jsonData.grades[gradeIndex].student = student;
+    if (subject !== undefined) jsonData.grades[gradeIndex].subject = subject;
+    if (type !== undefined) jsonData.grades[gradeIndex].type = type;
+    if (value !== undefined) jsonData.grades[gradeIndex].type = value;
 
     await fs.writeFile(global.fileNameData, JSON.stringify(jsonData, null, 2));
 

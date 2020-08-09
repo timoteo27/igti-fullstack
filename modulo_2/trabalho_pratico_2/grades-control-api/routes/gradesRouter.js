@@ -21,7 +21,7 @@ gradesRouter.post('/', async (req, res) => {
   res.send(await inserirNovaGrade(student, subject, type, value));
 });
 
-gradesRouter.put('/:id', async (req, res) => {
+gradesRouter.patch('/:id', async (req, res) => {
   const { student, subject, type, value } = req.body;
   res.send(
     await atualizarGrade(parseInt(req.params.id), student, subject, type, value)
