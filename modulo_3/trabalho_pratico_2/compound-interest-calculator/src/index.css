@@ -41,3 +41,34 @@ code {
   margin-left: 10px;
   margin-right: 10px;
 }
+
+.installments {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+
+.installment-box {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 2px;
+  border-style: solid;
+  border-width: 0.5px;
+  border-radius: 5px;
+}
+
+.installment-number {
+  font-size: 24px;
+  color: crimson;
+  padding: 10px;
+}
+
+.installment-info {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}

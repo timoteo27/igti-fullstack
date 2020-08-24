@@ -5,7 +5,7 @@ import CompoundInterestCalculator from './components/CompoundInterestCalculator'
 function App() {
   return (
     <>
-      <div class="centered">
+      <div className="centered">
         <Title>React - Juros Compostos</Title>
       </div>
       <CompoundInterestCalculator />

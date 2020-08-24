@@ -7,15 +7,21 @@ export default function CompoundInterestCalculator() {
 
   function calculateInstallments(amount, interest, months) {
     const installmentsArray = [];
+    let calculatedCompound = amount;
 
+    //prettier-ignore
     for (let index = 0; index < months; index++) {
-      const amountValue = amount + amount * interest;
+      
+      calculatedCompound = calculatedCompound + (calculatedCompound * (interest / 100));
+
+      const installmentValue = calculatedCompound - amount;
+      const installmentPercentage = (installmentValue * 100) / amount;
 
       installmentsArray.push({
         sequence: index + 1,
-        amountValue,
-        installmentValue: index * 10,
-        installmentPercentage: index * 20,
+        amountValue: calculatedCompound,
+        installmentValue,
+        installmentPercentage,
       });
     }
 
@@ -25,7 +31,9 @@ export default function CompoundInterestCalculator() {
   return (
     <>
       <Form calculateFunction={calculateInstallments} />
-      <Installments array={installmentsCalculated} />
+      <div className="installments">
+        <Installments array={installmentsCalculated} />
+      </div>
     </>
   );
 }

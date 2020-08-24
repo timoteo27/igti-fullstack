@@ -20,7 +20,7 @@ export default function Form({ calculateFunction }) {
   }
 
   return (
-    <div class="flex-row centered">
+    <div className="flex-row centered">
       <input
         type="number"
         name="amount"
